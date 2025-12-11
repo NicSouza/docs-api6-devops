@@ -1,4 +1,4 @@
-# Documentação de Testes Automatizados <br>
+# Documentação de Testes de Integração ou Unitários <br>
 
 ## 1. O que são nossos testes? <br>
 São testes projetados para validar a lógica de negócios e a interação entre a camada de serviço e a camada de dados. No projeto Khali API 6, eles garantem que o cálculo de safras (Yield Model), a manipulação de dados e as regras de inserção no MongoDB estão funcionando como esperado.
