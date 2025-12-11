@@ -15,7 +15,7 @@ No projeto API 6, a estratégia de deploy adota o modelo PaaS (Platform as a Ser
 - Cluster configurado no MongoDB Atlas (Database).
 
 ## 3. Configuração do Deploy e Ferramentas Utilizadas <br>
-### - Infraestrutura <br>
+### Infraestrutura <br>
 O ambiente de produção é composto por serviços em nuvem distribuídos:
 
 ### Banco de Dados: <br>
@@ -50,17 +50,17 @@ O ambiente de produção é composto por serviços em nuvem distribuídos:
 
 - Definir o diretório raiz (Root Directory) como apps/api.
 
-- Configurar os comandos de build e start:
+### Configurar os comandos de build e start:
 
-### Build Command: poetry install <br>
+- Build Command: poetry install <br>
 
-### Start Command: gunicorn api.server:create_app() <br>
+- Start Command: gunicorn api.server:create_app() <br>
 
-- Inserir as variáveis de ambiente (Environment Variables) no painel do Render, não via arquivo .env, para segurança:
+- Inserir as variáveis de ambiente (Environment Variables) no painel do Render, não via arquivo .env, para segurança: <br>
 
-### MONGO_URI: <Sua string de conexão do Atlas>
+- MONGO_URI: <Sua string de conexão do Atlas>
 
-### FLASK_ENV: production
+- FLASK_ENV: production
 
 ### Configuração de Ambiente de Produção (Frontend - Vercel): <br>
 - Importar o projeto na Vercel via GitHub.
@@ -106,22 +106,23 @@ O "push" da imagem é substituído pelo "pull" do código fonte:
 
 - Configuração: No painel do Render/Vercel, a opção Auto-Deploy deve estar habilitada para a branch main.
 
-- O Processo:
+### O Processo: <br>
 
-O desenvolvedor faz o merge na main.
+- O desenvolvedor faz o merge na main.
 
-O GitHub Actions roda os testes (CI).
+- O GitHub Actions roda os testes (CI).
 
-Se os testes passarem, o código é disponibilizado.
+- Se os testes passarem, o código é disponibilizado.
 
-O Render e a Vercel detectam o novo commit via Webhook.
+- O Render e a Vercel detectam o novo commit via Webhook.
 
-O processo de Build e Deploy inicia automaticamente.
+- O processo de Build e Deploy inicia automaticamente.
 
 (Nota: Para maior controle, o "Auto-Deploy" pode ser desativado nos painéis, exigindo um clique manual no botão "Deploy" após a validação da CI, caracterizando o Deploy Manual supervisionado).
 
 ## 7. Validação Pós-Deploy <br>
 - Checklist de Validação
+  
 - Verificar se o status no painel do Render está como "Live" (Verde).
 
 - Verificar se o deployment na Vercel está marcado como "Ready".
@@ -134,7 +135,7 @@ O processo de Build e Deploy inicia automaticamente.
 
 - Verificar se o Token foi salvo no Storage (validando a lógica de negócio).
 
-### Endereços de Produção (Exemplos): <br>
+### Endereços de Produção: <br>
 Frontend: <https://api6-devops-frontend.vercel.app>
 
 Backend: <https://api6-devops-backend.onrender.com>
